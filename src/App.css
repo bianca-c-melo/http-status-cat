@@ -1,5 +1,3 @@
-
-
 #root {
   margin: 0 auto;
   text-align: center;
@@ -40,4 +38,56 @@
 
 .read-the-docs {
   color: rgb(168, 162, 162);
+}
+
+/* Estilos para o menu */
+.menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #33333300;
+  color: #fff;
+  padding: 1em;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  color: #11eb32aa;
+  font-size: 40px;
+  cursor: pointer;
+  outline: none;
+  position: fixed;
+  top: 1rem;
+  left: -1rem;
+  z-index: 1;
+}
+
+.menu-list {
+  list-style-type: none;
+  padding: 4;
+  margin: 4;
+  overflow: scroll;
+  max-height: calc(100% - 40px);
+  
+  /* Personalizar a aparência da barra de rolagem */
+  scrollbar-width: auto;
+  scrollbar-color: #272827 #000000;
+}
+
+.menu-list li {
+  padding: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.menu-list li:hover {
+  background-color: #19e01c32;
 }

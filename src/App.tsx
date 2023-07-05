@@ -1,5 +1,5 @@
 import './App.css';
-import HttpCatButton from './cat-http-request/utils';
+import HttpCatButton from './cat-http-request/HttpCatButton';
 
 function App() {
   return (
