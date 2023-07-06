@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Kryptonic';
-  src: url('../assets/KryptonicspersonaluseBold-owKZx.otf') format('opentype');
+  font-family: "Kryptonic";
+  src: url("../assets/KryptonicspersonaluseBold-owKZx.otf") format("opentype");
 }
 
 :root {
@@ -14,12 +14,29 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
 p {
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
   font-size: 1.1rem;
   padding-bottom: 1rem;
   color: #18a116;
+}
+
+@media screen and (max-width: 768px) {
+  p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  p {
+    font-size: 0.5rem;
+  }
 }
 
 a {
@@ -46,27 +63,47 @@ h3 {
   font-weight: bold;
   padding-bottom: 1rem;
   color: #1cce22;
-
-  font-family: 'open sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
 }
 
+@media screen and (max-width: 768px) {
+  h3 {
+    font-size: 1rem;
+  }
+}
+
 h1 {
-  font-size: 7rem;
+  font-size: 5rem;
   margin-top: 8rem;
   margin-bottom: 4rem;
   color: #ff6f3c;
-  font-family: 'Kryptonic', sans-serif;
+  font-family: "Kryptonic", sans-serif;
   font-weight: 100;
 }
 
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 4rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+}
 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1.2em;
-  font-family: 'Kryptonic', sans-serif;
+  font-family: "Kryptonic", sans-serif;
   color: #ff9a3c;
   cursor: pointer;
   background-color: #172070;
@@ -81,6 +118,20 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 8px auto -webkit-focus-ring-color;
+}
+
+@media screen and (max-width: 768px) {
+  button {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  button {
+    font-size: 0.9rem;
+    padding: 0.4em 0.8em;
+  }
 }
 
 li {

@@ -76,7 +76,7 @@
   margin: 4;
   overflow: scroll;
   max-height: calc(100% - 40px);
-  
+
   /* Personalizar a aparência da barra de rolagem */
   scrollbar-width: auto;
   scrollbar-color: #272827 #000000;

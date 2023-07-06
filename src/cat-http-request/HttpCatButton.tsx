@@ -51,6 +51,7 @@ const HttpCatButton = () => {
         {randomCode ? (
           <>
             <img
+              className="responsive-image"
               src={`https://http.cat/${randomCode}`}
               alt={`HTTP Status ${randomCode}`}
             />
