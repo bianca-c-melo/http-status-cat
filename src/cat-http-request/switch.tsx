@@ -1,4 +1,5 @@
 import { FormControlLabel, FormGroup, Switch, styled } from "@mui/material";
+import { ChangeEvent } from "react";
 
 const CustomSwitch = styled(Switch)(({ theme }) => ({
     width: 62,
@@ -47,8 +48,13 @@ const CustomSwitch = styled(Switch)(({ theme }) => ({
     },
   }));
 
-const CustomizedSwitches = ({ checked, onChange }) => {
-  return (
+  type CustomizedSwitchesProps = {
+    checked: boolean;
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  };
+  
+  const CustomizedSwitches: React.FC<CustomizedSwitchesProps> = ({ checked, onChange }) => {
+    return (
     <FormGroup>
       <div style={{
         position: "absolute",
