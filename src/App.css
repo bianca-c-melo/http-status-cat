@@ -1,93 +1,31 @@
 #root {
   margin: 0 auto;
   text-align: center;
-  background-color: black;
-}
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
 }
 
 .card {
   padding: 2em;
 }
 
-.read-the-docs {
-  color: rgb(168, 162, 162);
-}
-
-/* Estilos para o menu */
-.menu {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 200px;
-  height: 100%;
-  background-color: #33333300;
-  color: #fff;
-  padding: 1em;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.menu-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  border: none;
-  color: #11eb32aa;
-  font-size: 40px;
+.big-button {
+  border-radius: 8px;
+  padding: 0.3em 1.8em;
+  font-size: 1.5rem;
+  font-family: "Cat";
+  color: #64ff90;
   cursor: pointer;
+  background-color: #172070;
+  transition: 0.25s;
+}
+
+.big-button:hover {
+  border-color: #ffc93c;
+  filter: brightness(1.2);
+}
+
+.big-button:focus,
+.big-button:focus-visible {
   outline: none;
-  position: fixed;
-  top: 1rem;
-  left: -1rem;
-  z-index: 1;
 }
 
-.menu-list {
-  list-style-type: none;
-  padding: 4;
-  margin: 4;
-  overflow: scroll;
-  max-height: calc(100% - 40px);
-
-  /* Personalizar a aparência da barra de rolagem */
-  scrollbar-width: auto;
-  scrollbar-color: #272827 #000000;
-}
-
-.menu-list li {
-  padding: 0.5em;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.menu-list li:hover {
-  background-color: #19e01c32;
-}
