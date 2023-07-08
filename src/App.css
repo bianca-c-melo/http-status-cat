@@ -1,17 +1,17 @@
 #root {
   margin: 0 auto;
   text-align: center;
-
 }
+
 
 .card {
   padding: 2em;
 }
 
-.big-button {
+.button {
   border-radius: 8px;
-  padding: 0.3em 1.8em;
-  font-size: 1.5rem;
+  padding: 0.7em 1.5em;
+  font-size: 1.8rem;
   font-family: "Cat";
   color: #64ff90;
   cursor: pointer;
@@ -19,13 +19,12 @@
   transition: 0.25s;
 }
 
-.big-button:hover {
+.button:hover {
   border-color: #ffc93c;
   filter: brightness(1.2);
 }
 
-.big-button:focus,
-.big-button:focus-visible {
+.button:focus,
+.button:focus-visible {
   outline: none;
 }
-

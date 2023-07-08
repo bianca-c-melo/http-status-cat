@@ -68,8 +68,8 @@ const CustomSwitch = styled(Switch)(({ theme }) => ({
         <FormControlLabel
           control={
             <CustomSwitch
-              checked={checked} // Recebe o valor do estado atual do tema escuro/claro
-              onChange={onChange} // Recebe a função para alternar o tema
+              checked={checked} 
+              onChange={onChange} 
             />
           }
           label="Ligth / Dark"

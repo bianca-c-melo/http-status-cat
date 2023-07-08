@@ -13,14 +13,12 @@ import { HttpStatusMessages } from "./http-cat-generator";
 import CustomizedSwitches from "./switch";
 import { HttpStatusCode } from "axios";
 
-// Define as cores para o tema light
 const lightTheme = createTheme({
   palette: {
     mode: "light",
   },
 });
 
-// Define as cores para o tema dark
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -30,7 +28,7 @@ const darkTheme = createTheme({
 const HttpCatButton = () => {
   const [randomCode, setRandomCode] = useState<any>();
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [isDarkTheme, setDarkTheme] = useState(true); // Estado para controlar o tema
+  const [isDarkTheme, setDarkTheme] = useState(true);
 
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
@@ -64,7 +62,6 @@ const HttpCatButton = () => {
     setDarkTheme(!isDarkTheme);
   };
 
-  // Seleciona o tema com base no estado do tema atual
   const selectedTheme = isDarkTheme ? darkTheme : lightTheme;
 
   return (
@@ -115,10 +112,10 @@ const HttpCatButton = () => {
               </div>
             </>
           ) : null}
-          <Button className="big-button" onClick={handleClick}>
+          <Button className="button" onClick={handleClick} style={{ background: "#172070" }} size="large">
             Get Random HTTP Status
           </Button>
-          <CustomizedSwitches checked={isDarkTheme} onChange={toggleTheme} />
+          <CustomizedSwitches checked={isDarkTheme} onChange={toggleTheme}/>
         </div>
       </div>
     </ThemeProvider>
