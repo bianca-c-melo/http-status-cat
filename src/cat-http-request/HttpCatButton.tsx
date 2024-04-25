@@ -4,6 +4,8 @@ import {
   MenuItem,
   ThemeProvider,
   createTheme,
+  TextField,
+  Autocomplete,
 } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useState } from "react";
@@ -29,6 +31,7 @@ const HttpCatButton = () => {
   const [randomCode, setRandomCode] = useState<any>();
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [isDarkTheme, setDarkTheme] = useState(true);
+  const [searchQuery, setSearchQuery] = useState(""); // Estado para a barra de pesquisa
 
   const handleMenuToggle = () => {
     setMenuOpen(!isMenuOpen);
@@ -47,19 +50,34 @@ const HttpCatButton = () => {
     setRandomCode(randomCode);
   };
 
-  const generateMenuItems = () => {
+  const generateItems = () => {
     const items = Object.values(HttpStatusCode).filter(
       (value) => typeof value === "number"
     );
-    return items.map((code: any) => (
-      <MenuItem key={code} onClick={() => handleStatusClick(code)}>
-        {code}
-      </MenuItem>
-    ));
+
+    const stringItems = items.map((num) => num.toString());
+
+    return stringItems;
   };
 
   const toggleTheme = () => {
     setDarkTheme(!isDarkTheme);
+  };
+
+  const handleAutocompleteChange = (value) => {
+    if (value) {
+      handleStatusClick(value);
+    }
+  };
+
+  const handleEnter = (event) => {
+    const items = generateItems();
+    if (event.key === "Enter") {
+      const code = searchQuery;
+      if (items.includes(code)) {
+        handleStatusClick(parseInt(searchQuery));
+      } 
+    }
   };
 
   const selectedTheme = isDarkTheme ? darkTheme : lightTheme;
@@ -69,6 +87,28 @@ const HttpCatButton = () => {
       <CssBaseline />
       <div className="root">
         <h1>Http Cat Generator</h1>
+        <div className="search">
+        <Autocomplete
+          options={generateItems()}
+          onKeyDown={(event) => {
+            handleEnter(event);
+          }}
+          onChange={(event, value) => handleAutocompleteChange(value)}
+          onInputChange={(event, value) => setSearchQuery(value)} // Atualiza searchQuery conforme o usuário digita
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Search HTTP Status"
+              InputProps={{
+                ...params.InputProps,
+                type: "search",
+              }}
+              variant="outlined"
+              fullWidth
+            />
+          )}
+        />
+        </div>
         <div className="card">
           <Button
             className={`menu-toggle ${isMenuOpen ? "open" : ""}`}
@@ -76,29 +116,11 @@ const HttpCatButton = () => {
             size="large"
             style={{
               position: "absolute",
-              top: "1rem",
+              top: "2rem",
+              marginTop: "2rem",
               left: "1rem",
             }}
-          >
-            <MenuIcon sx={{ fontSize: "2rem" }} />
-          </Button>
-          {isMenuOpen && (
-            <Menu
-              anchorEl={null}
-              open={isMenuOpen}
-              onClose={() => setMenuOpen(false)}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-            >
-              {generateMenuItems()}
-            </Menu>
-          )}
+          ></Button>
           {randomCode ? (
             <>
               <img
@@ -112,10 +134,15 @@ const HttpCatButton = () => {
               </div>
             </>
           ) : null}
-          <Button className="button" onClick={handleClick} style={{ background: "#172070" }} size="large">
+          <Button
+            className="button"
+            onClick={handleClick}
+            style={{ background: "#172070" }}
+            size="large"
+          >
             Get Random HTTP Status
           </Button>
-          <CustomizedSwitches checked={isDarkTheme} onChange={toggleTheme}/>
+          <CustomizedSwitches checked={isDarkTheme} onChange={toggleTheme} />
         </div>
       </div>
     </ThemeProvider>
