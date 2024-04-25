@@ -1,7 +1,5 @@
 import {
   Button,
-  Menu,
-  MenuItem,
   ThemeProvider,
   createTheme,
   TextField,
@@ -9,7 +7,6 @@ import {
 } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
 import "../index.css";
 import { HttpStatusMessages } from "./http-cat-generator";
 import CustomizedSwitches from "./switch";
@@ -93,8 +90,8 @@ const HttpCatButton = () => {
           onKeyDown={(event) => {
             handleEnter(event);
           }}
-          onChange={(event, value) => handleAutocompleteChange(value)}
-          onInputChange={(event, value) => setSearchQuery(value)} // Atualiza searchQuery conforme o usuário digita
+          onChange={(_, value) => handleAutocompleteChange(value)}
+          onInputChange={(_, value) => setSearchQuery(value)} // Atualiza searchQuery conforme o usuário digita
           renderInput={(params) => (
             <TextField
               {...params}
