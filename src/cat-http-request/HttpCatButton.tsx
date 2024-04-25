@@ -15,12 +15,18 @@ import { HttpStatusCode } from "axios";
 const lightTheme = createTheme({
   palette: {
     mode: "light",
+    text: {
+      primary: "#000000", // Define a cor do texto como preto
+    },
   },
 });
 
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
+    text: {
+      primary: "#fff",
+    },
   },
 });
 
@@ -73,7 +79,7 @@ const HttpCatButton = () => {
       const code = searchQuery;
       if (items.includes(code)) {
         handleStatusClick(parseInt(searchQuery));
-      } 
+      }
     }
   };
 
@@ -82,34 +88,40 @@ const HttpCatButton = () => {
   return (
     <ThemeProvider theme={selectedTheme}>
       <CssBaseline />
+
+      <CustomizedSwitches checked={isDarkTheme} onChange={toggleTheme} />
+
       <div className="root">
-        <h1>Http Cat Generator</h1>
+        <div className="h1">
+          <h1>Http Cat Generator</h1>
+        </div>
         <div className="search">
-        <Autocomplete
-          options={generateItems()}
-          onKeyDown={(event) => {
-            handleEnter(event);
-          }}
-          onChange={(_, value) => {
-            if (value !== null) {
-              handleAutocompleteChange(value);
-            }
-          }}
-          
-          onInputChange={(_, value) => setSearchQuery(value)} // Atualiza searchQuery conforme o usuário digita
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Search HTTP Status"
-              InputProps={{
-                ...params.InputProps,
-                type: "search",
-              }}
-              variant="outlined"
-              fullWidth
-            />
-          )}
-        />
+          <Autocomplete
+            options={generateItems()}
+            onKeyDown={(event) => {
+              handleEnter(event);
+            }}
+            onChange={(_, value) => {
+              if (value !== null) {
+                handleAutocompleteChange(value);
+              }
+            }}
+            onInputChange={(_, value) => setSearchQuery(value)} // Atualiza searchQuery conforme o usuário digita
+            renderInput={(params) => (
+              <TextField
+                color="info"
+                style={{"caretColor": "#7fff00"}}
+                {...params}
+                label="Search HTTP Status"
+                InputProps={{
+                  ...params.InputProps,
+                  type: "search",
+                }}
+                variant="outlined"
+                fullWidth
+              />
+            )}
+          />
         </div>
         <div className="card">
           <Button
@@ -132,19 +144,20 @@ const HttpCatButton = () => {
               />
               <div>
                 <h3>{HttpStatusMessages[randomCode].titulo}</h3>
-                <p>{HttpStatusMessages[randomCode].descricao}</p>
+                <p style={{ color: selectedTheme.palette.text.primary }}>
+                  {HttpStatusMessages[randomCode].descricao}
+                </p>
               </div>
             </>
           ) : null}
           <Button
             className="button"
             onClick={handleClick}
-            style={{ background: "#172070" }}
+            style={{ background: "#2330a9", color: "#ffffff" }}
             size="large"
           >
             Get Random HTTP Status
           </Button>
-          <CustomizedSwitches checked={isDarkTheme} onChange={toggleTheme} />
         </div>
       </div>
     </ThemeProvider>

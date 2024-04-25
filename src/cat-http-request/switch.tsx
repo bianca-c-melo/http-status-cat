@@ -59,11 +59,10 @@ const CustomSwitch = styled(Switch)(({ theme }) => ({
       <div style={{
         position: "absolute",
         marginTop: "2rem",
+        marginBottom: "20rem",
         top: "1rem",
         right: "1rem",
-        transform: "translate(-50%, -50%)",
-        display: "flex",
-        alignItems: "center"
+
       }}>
         <FormControlLabel
           control={

@@ -19,18 +19,26 @@
   padding: 0.7em 1.5em;
   font-size: 1.8rem;
   font-family: "Cat";
-  color: #64ff90;
   cursor: pointer;
-  background-color: #172070;
   transition: 0.25s;
 }
 
 .button:hover {
-  border-color: #ffc93c;
   filter: brightness(1.2);
 }
 
 .button:focus,
 .button:focus-visible {
   outline: none;
+}
+.h1{
+  margin-top: 7rem;
+}
+
+#css-n8dgbm-MuiInputBase-input-MuiOutlinedInput-input{
+  color:chartreuse
+}
+
+.css-n8dgbm-MuiInputBase-input-MuiOutlinedInput-input {
+  color:chartreuse
 }
