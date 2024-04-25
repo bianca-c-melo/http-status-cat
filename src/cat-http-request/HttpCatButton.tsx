@@ -61,13 +61,13 @@ const HttpCatButton = () => {
     setDarkTheme(!isDarkTheme);
   };
 
-  const handleAutocompleteChange = (value) => {
+  const handleAutocompleteChange = (value: string) => {
     if (value) {
-      handleStatusClick(value);
+      handleStatusClick(parseInt(value));
     }
   };
 
-  const handleEnter = (event) => {
+  const handleEnter = (event: React.KeyboardEvent) => {
     const items = generateItems();
     if (event.key === "Enter") {
       const code = searchQuery;
@@ -90,7 +90,12 @@ const HttpCatButton = () => {
           onKeyDown={(event) => {
             handleEnter(event);
           }}
-          onChange={(_, value) => handleAutocompleteChange(value)}
+          onChange={(_, value) => {
+            if (value !== null) {
+              handleAutocompleteChange(value);
+            }
+          }}
+          
           onInputChange={(_, value) => setSearchQuery(value)} // Atualiza searchQuery conforme o usuário digita
           renderInput={(params) => (
             <TextField
