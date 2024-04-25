@@ -1,3 +1,3 @@
-Choice or random your Http status code 
+Search or get your http status code, or just have fun, it doesn't matter 😜🐱 
 
-<img width="1222" alt="image" src="https://github.com/bianca-c-melo/http-status-cat/assets/81665351/0e3f9b54-bc7c-46fb-a4a5-f1a1ecf8fa45">
+<img width="1781" alt="Captura de Tela 2024-04-25 às 01 25 30" src="https://github.com/bianca-c-melo/http-status-cat/assets/81665351/2543dd82-0903-4895-ba92-78a5e7a558fa">
